@@ -1,0 +1,62 @@
+@use '@/styles/portfolio' as *;
+
+.section {
+  @include section;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.inner { @include container; }
+
+.eyebrow { @include eyebrow; }
+.heading {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 16px 0 40px;
+  em {
+    font-family: $font-display;
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: $text;
+  color: $bg;
+  font-weight: 500;
+  transition: transform .2s ease;
+  &:hover { transform: translateY(-2px); }
+  span {
+    display: grid; place-items: center;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: $accent;
+    color: #fff;
+  }
+}
+.secondary {
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: 1px solid $border-strong;
+  color: $text;
+  &:hover { background: $bg-elev; }
+}
+
+.links {
+  display: inline-flex; gap: 24px;
+  font-size: 14px;
+  color: $text-muted;
+  a:hover { color: $accent; }
+}

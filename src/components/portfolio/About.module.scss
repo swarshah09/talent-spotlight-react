@@ -1,0 +1,112 @@
+@use '@/styles/portfolio' as *;
+
+.section { @include section; position: relative; z-index: 1; }
+.inner   { @include container; }
+
+.eyebrow { @include eyebrow; }
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 16px 0 24px;
+  em {
+    font-family: $font-display;
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+.lead {
+  color: $text-muted;
+  max-width: 720px;
+  line-height: 1.7;
+  margin: 0 0 56px;
+  font-size: 17px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+  @media (max-width: 720px) { grid-template-columns: 1fr; }
+}
+.col {
+  padding: 24px;
+  border-radius: $radius;
+  background: $bg-elev;
+  border: 1px solid $border;
+  h4 {
+    margin: 0 0 16px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-dim;
+    font-weight: 500;
+  }
+}
+.eduTitle {
+  font-size: 18px;
+  font-weight: 500;
+}
+.eduMeta {
+  color: $text-muted;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.certs {
+  margin: 0; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  li {
+    color: $text-muted;
+    font-size: 14px;
+    padding-left: 18px;
+    position: relative;
+    &::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: $accent;
+    }
+  }
+}
+
+.skills {
+  border-top: 1px solid $border;
+  padding-top: 32px;
+  h4 {
+    margin: 0 0 24px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-dim;
+    font-weight: 500;
+  }
+}
+.skillRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid $border;
+  align-items: center;
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+.skillLabel {
+  font-size: 14px;
+  color: $text;
+}
+.skillTags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  span {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid $border;
+    color: $text-muted;
+  }
+}
