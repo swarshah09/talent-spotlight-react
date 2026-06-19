@@ -1,0 +1,59 @@
+@use '@/styles/portfolio' as *;
+
+.section { @include section; position: relative; z-index: 1; }
+.inner   { @include container; }
+
+.eyebrow { @include eyebrow; }
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  margin: 16px 0 48px;
+  em {
+    font-family: $font-display;
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  @media (max-width: 720px) { grid-template-columns: 1fr; }
+}
+
+.card {
+  padding: 28px;
+  border-radius: $radius;
+  background: $bg-elev;
+  border: 1px solid $border;
+  transition: border-color .25s ease, transform .25s ease;
+  &:hover { border-color: $accent; transform: translateY(-3px); }
+
+  ul {
+    list-style: none; padding: 0; margin: 16px 0 0;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    li {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid $border;
+      color: $text-muted;
+    }
+  }
+}
+.head {
+  display: flex; align-items: baseline; gap: 12px;
+}
+.n {
+  color: $accent;
+  font-size: 13px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}

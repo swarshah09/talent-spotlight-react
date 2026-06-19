@@ -1,29 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/portfolio/Nav";
+import { Hero } from "@/components/portfolio/Hero";
+import { Experience } from "@/components/portfolio/Experience";
+import { Work } from "@/components/portfolio/Work";
+import { Services } from "@/components/portfolio/Services";
+import { About } from "@/components/portfolio/About";
+import { Contact } from "@/components/portfolio/Contact";
+import { Footer } from "@/components/portfolio/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Swar Shah — Software Developer" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Swar Shah — Software Developer specializing in scalable, event-driven full-stack web applications across Fintech and enterprise.",
+      },
+      { property: "og:title", content: "Swar Shah — Software Developer" },
+      {
+        property: "og:description",
+        content:
+          "Full-stack engineer (React, Spring Boot, Kafka, AWS) shipping production systems for Fintech & enterprise.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Experience />
+        <Work />
+        <Services />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

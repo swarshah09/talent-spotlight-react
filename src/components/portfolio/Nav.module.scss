@@ -1,0 +1,52 @@
+@use '@/styles/portfolio' as *;
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(10, 10, 10, 0.6);
+  border-bottom: 1px solid $border;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.mark { color: $accent; }
+
+.links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  color: $text-muted;
+  a {
+    transition: color .2s ease;
+    &:hover { color: $text; }
+  }
+  @media (max-width: 720px) { display: none; }
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: $text-muted;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: $success;
+  box-shadow: 0 0 10px $success;
+}

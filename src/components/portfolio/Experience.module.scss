@@ -1,0 +1,65 @@
+@use '@/styles/portfolio' as *;
+
+.section { @include section; position: relative; z-index: 1; }
+.inner   { @include container; }
+
+.eyebrow { @include eyebrow; }
+
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 16px 0 56px;
+  max-width: 800px;
+  em {
+    font-family: $font-display;
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid $border;
+}
+.item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid $border;
+  transition: padding .25s ease, background .25s ease;
+  &:hover {
+    padding-inline: 16px;
+    background: linear-gradient(90deg, rgba(255,91,46,0.06), transparent);
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+.period {
+  color: $text-dim;
+  font-size: 14px;
+  padding-top: 4px;
+}
+.role {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+.company {
+  color: $accent;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.summary {
+  margin: 12px 0 0;
+  color: $text-muted;
+  line-height: 1.6;
+  max-width: 640px;
+}
