@@ -1,6 +1,6 @@
 import styles from './Hero.module.scss';
 import { profile } from '@/data/portfolio';
-import portrait from '@/assets/hero-portrait.jpg';
+import portraitAsset from '@/assets/profile-photo.jpg.asset.json';
 
 export function Hero() {
   return (
@@ -11,7 +11,7 @@ export function Hero() {
 
       <div className={styles.portraitWrap}>
         <img
-          src={portrait}
+          src={portraitAsset.url}
           alt={`Portrait of ${profile.name}`}
           className={styles.portrait}
           width={896}
