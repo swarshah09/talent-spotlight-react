@@ -13,6 +13,7 @@ import { MotionConfig } from "framer-motion";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PageReveal } from "@/components/portfolio/PageReveal";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
 
 function NotFoundComponent() {
   return (
@@ -123,6 +124,7 @@ function RootComponent() {
       {/* reducedMotion="user" auto-simplifies transforms for users who set the OS preference. */}
       <MotionConfig reducedMotion="user">
         <PageReveal />
+        <ScrollProgress />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </MotionConfig>
