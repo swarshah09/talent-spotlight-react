@@ -4,9 +4,18 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  backdrop-filter: blur(0px);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    backdrop-filter .35s ease,
+    background .35s ease,
+    border-color .35s ease;
+}
+.nav.scrolled {
   backdrop-filter: blur(14px);
-  background: rgba(10, 10, 10, 0.6);
-  border-bottom: 1px solid $border;
+  background: rgba(10, 10, 10, 0.72);
+  border-bottom-color: $border;
 }
 
 .inner {
@@ -32,10 +41,24 @@
   font-size: 14px;
   color: $text-muted;
   a {
+    position: relative;
+    padding-block: 4px;
     transition: color .2s ease;
     &:hover { color: $text; }
   }
+  a.active { color: $text; }
   @media (max-width: 720px) { display: none; }
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: $accent;
+  box-shadow: 0 0 10px rgba(255, 91, 46, 0.6);
 }
 
 .location {

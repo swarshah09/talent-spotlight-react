@@ -1,30 +1,62 @@
+import { motion } from 'framer-motion';
 import styles from './Contact.module.scss';
 import { profile } from '@/data/portfolio';
+import { AnimatedSection, revealItem, revealItemLg } from './AnimatedSection';
+import { spring } from '@/lib/motion';
 
 export function Contact() {
   return (
-    <section id="contact" className={styles.section}>
+    <AnimatedSection
+      id="contact"
+      className={styles.section}
+      data-testid="contact-section"
+      stagger={0.1}
+    >
       <div className={styles.inner}>
-        <span className={styles.eyebrow}>Contact</span>
-        <h2 className={styles.heading}>
+        <motion.span className={styles.eyebrow} variants={revealItem}>
+          Contact
+        </motion.span>
+        <motion.h2 className={styles.heading} variants={revealItem}>
           Have a role or a project in mind?
           <br />
           <em>Let's build it.</em>
-        </h2>
+        </motion.h2>
 
-        <div className={styles.actions}>
-          <a href={`mailto:${profile.email}`} className={styles.primary}>
+        <motion.div className={styles.actions} variants={revealItemLg}>
+          <motion.a
+            href={`mailto:${profile.email}`}
+            className={styles.primary}
+            data-testid="contact-email"
+            whileHover={{ y: -2, scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            transition={spring}
+          >
             {profile.email} <span aria-hidden>↗</span>
-          </a>
-          <a href={`tel:${profile.phone}`} className={styles.secondary}>{profile.phone}</a>
-        </div>
+          </motion.a>
+          <motion.a
+            href={`tel:${profile.phone}`}
+            className={styles.secondary}
+            data-testid="contact-phone"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            transition={spring}
+          >
+            {profile.phone}
+          </motion.a>
+        </motion.div>
 
-        <div className={styles.links}>
-          <a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href={profile.links.github} target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href={profile.links.resume} target="_blank" rel="noreferrer">Resume ↗</a>
-        </div>
+        <motion.div className={styles.links} variants={revealItem}>
+          <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn ↗
+          </a>
+          <a href={profile.links.github} target="_blank" rel="noreferrer">
+            GitHub ↗
+          </a>
+          <a href={profile.links.resume} target="_blank" rel="noreferrer">
+            Resume ↗
+          </a>
+        </motion.div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

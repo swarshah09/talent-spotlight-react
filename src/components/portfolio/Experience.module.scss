@@ -20,6 +20,31 @@
   }
 }
 
+.timelineWrap {
+  position: relative;
+  padding-left: 0;
+}
+
+// The vertical rail sits on the left, aligned with the period column.
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 2px;
+  background: $border;
+  border-radius: 2px;
+  overflow: hidden;
+  @media (max-width: 640px) { display: none; }
+}
+.progress {
+  width: 100%;
+  background: linear-gradient(180deg, $accent, $accent-2);
+  box-shadow: 0 0 12px rgba(255, 91, 46, 0.5);
+  transform-origin: top;
+  will-change: height;
+}
+
 .list {
   list-style: none;
   padding: 0;
@@ -27,21 +52,48 @@
   border-top: 1px solid $border;
 }
 .item {
+  position: relative;
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 32px;
-  padding: 28px 0;
+  padding: 28px 0 28px 32px;
   border-bottom: 1px solid $border;
-  transition: padding .25s ease, background .25s ease;
+  transition: padding .3s ease, background .3s ease;
   &:hover {
-    padding-inline: 16px;
+    padding-inline-end: 16px;
+    padding-left: 40px;
     background: linear-gradient(90deg, rgba(255,91,46,0.06), transparent);
   }
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
     gap: 8px;
+    padding-left: 0;
+    &:hover { padding-left: 0; padding-inline-end: 0; }
   }
 }
+
+// Node marker on the rail (one per item)
+.node {
+  position: absolute;
+  left: 0;
+  top: 34px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $bg;
+  border: 2px solid $accent;
+  box-shadow: 0 0 12px rgba(255, 91, 46, 0.55);
+  transform: translateX(-6px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.item:hover .node {
+  transform: translateX(-6px) scale(1.15);
+  box-shadow: 0 0 18px rgba(255, 91, 46, 0.75);
+}
+@media (max-width: 640px) {
+  .node { display: none; }
+}
+
 .period {
   color: $text-dim;
   font-size: 14px;

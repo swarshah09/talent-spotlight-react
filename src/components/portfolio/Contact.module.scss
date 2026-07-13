@@ -36,22 +36,31 @@
   background: $text;
   color: $bg;
   font-weight: 500;
-  transition: transform .2s ease;
-  &:hover { transform: translateY(-2px); }
+  will-change: transform;
+  transition: box-shadow .3s ease;
+  &:hover { box-shadow: 0 18px 40px -14px rgba(255,255,255,0.35), 0 0 0 1px rgba(255, 91, 46, 0.15); }
   span {
     display: grid; place-items: center;
     width: 26px; height: 26px;
     border-radius: 50%;
     background: $accent;
     color: #fff;
+    transition: transform .3s ease;
   }
+  &:hover span { transform: translate(2px, -2px) rotate(6deg); }
 }
 .secondary {
   padding: 16px 24px;
   border-radius: 999px;
   border: 1px solid $border-strong;
   color: $text;
-  &:hover { background: $bg-elev; }
+  will-change: transform;
+  transition: background .25s ease, border-color .25s ease, box-shadow .3s ease;
+  &:hover {
+    background: $bg-elev;
+    border-color: rgba(255, 91, 46, 0.5);
+    box-shadow: 0 14px 32px -14px rgba(255, 91, 46, 0.35);
+  }
 }
 
 .links {

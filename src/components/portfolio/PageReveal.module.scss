@@ -1,0 +1,33 @@
+@use '@/styles/portfolio' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: $bg;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+}
+
+.mark {
+  font-size: 42px;
+  color: $accent;
+  filter: drop-shadow(0 0 20px rgba(255, 91, 46, 0.6));
+  display: inline-block;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $accent 40%, $accent-2 60%, transparent);
+  transform-origin: left center;
+  box-shadow: 0 0 24px rgba(255, 91, 46, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { display: none; }
+}
